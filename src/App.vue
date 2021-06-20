@@ -74,7 +74,7 @@ export default {
   data() {
     return {
       dataGerman: [],
-      dataWorld: [],
+      dataWorld: new Array(),
       sumComfirmed: 0,
       sumRecover: 0,
       sumDeath: 0,
@@ -96,9 +96,13 @@ export default {
     },
     fetchDataWorld() {
       getCase.get().then((response) => {
+        console.log(response.data)
         this.dataWorld = response.data;
+        delete this.dataWorld['Global'];
         var self = this;
         Object.keys(this.dataWorld).map(function(key) {
+
+          
           (self.sumComfirmed += response.data[key]["All"]["confirmed"]),
             (self.sumRecover += response.data[key]["All"]["recovered"]),
             self.sumDeath += response.data[key]['All']['deaths']
