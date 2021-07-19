@@ -1,5 +1,5 @@
 # Bug
-- Phần tính toán do em cộng cả global nên sẽ bị sai số cả death confirmed và recovery (do em không để ý phần object cuối là global)
+- Da fix bug
 ## Project setup
 ```
 yarn install
